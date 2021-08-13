@@ -1,25 +1,22 @@
 import { FC, useState } from "react";
 import AddCategory from "../addCategory";
-import { IndexCode } from "./IndexCode";
+import GifGrid from "../gifGrid";
 
 const GifExpertApp: FC = (props) => {
-  const ic = IndexCode();
+  const [category, setCategory] = useState("");
 
   return (
     <div>
       <h1>GifExpertApp</h1>
-      <br/>
-      <hr />
       <br />
-      <AddCategory categories={ic.categories} setCategories={ic.setcategories} />
+
+      <AddCategory category={category} setCategory={setCategory} />
 
       <br />
       <hr />
       <br />
       <ol>
-        {ic.categories.map((v, i) => (
-          <li key={i}>{v}</li>
-        ))}
+        <GifGrid category={category} />
       </ol>
     </div>
   );
